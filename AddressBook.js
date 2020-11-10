@@ -107,6 +107,17 @@ class AddressBookContact {
 
 
 }
-let newContact = new AddressBookContact("Utkarsh", "Agrawal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
+let newContact = new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
                                          "9044961252", "utkarsh@gmail.com");
 console.log(newContact.toString());
+
+let contactList = [];
+try{
+    contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
+                                        "7086147852", "akshat@utlook.com"));
+    contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
+                                            "9635214782", "diksha@hotmail.com"));
+} catch (e) {
+    console.log(e);
+}
+console.log(contactList);
