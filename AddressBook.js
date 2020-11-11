@@ -43,7 +43,7 @@ class AddressBookContact {
         return this._address;
     }
     set address(address) {
-        let addressRegex = RegExp('^[A-Za-z]{1}[a-z\\s]{3,}');
+        let addressRegex = RegExp('^[A-Za-z]{1}[a-z0-9\\s]{3,}');
         if(addressRegex.test(address))
             this._address = address;
         else 
@@ -122,5 +122,19 @@ try{
 }
 console.log(contactList);
 
-contactList.filter(contactData => contactData.firstName=="Diksha").forEach(contactData=>contactData.address = "George Town");
+//uc4 Update data using first name
+contactList.forEach(element => {
+    if(element.firstName=="Diksha" && element.lastName=="Singh"){
+        element.address = "Tagore Town";
+    }
+});
+console.log(contactList);
+
+//uc5 delete data using first name
+let index;
+contactList.forEach(element=> {
+    if(element.firstName == "Akshat")   
+        index = contactList.indexOf(element);
+});
+contactList.splice(index, 1);
 console.log(contactList);
