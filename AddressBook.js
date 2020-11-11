@@ -122,5 +122,10 @@ try{
 }
 console.log(contactList);
 
-contactList.filter(contactData => contactData.firstName=="Diksha").forEach(contactData=>contactData.address = "George Town");
+//uc4 Update data using first name
+contactList.forEach(element => {
+    if(element._firstName=="Diksha"){
+        element._address = "Tagore Town";
+    }
+});
 console.log(contactList);
