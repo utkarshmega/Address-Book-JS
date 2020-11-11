@@ -111,7 +111,7 @@ let newContact = new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahaba
                                          "9044961252", "utkarsh@gmail.com");
 console.log(newContact.toString());
 
-let contactList = [];
+let contactList = new Array();
 try{
     contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
                                         "7086147852", "akshat@utlook.com"));
@@ -120,4 +120,12 @@ try{
 } catch (e) {
     console.log(e);
 }
+console.log(contactList);
+
+//uc4 Update data using first name
+contactList.forEach(element => {
+    if(element._firstName=="Diksha"){
+        element._address = "Tagore Town";
+    }
+});
 console.log(contactList);
