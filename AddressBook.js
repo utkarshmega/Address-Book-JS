@@ -43,7 +43,7 @@ class AddressBookContact {
         return this._address;
     }
     set address(address) {
-        let addressRegex = RegExp('^[A-Za-z]{1}[a-z\\s]{3,}');
+        let addressRegex = RegExp('^[A-Za-z]{1}[a-z0-9\\s]{3,}');
         if(addressRegex.test(address))
             this._address = address;
         else 
@@ -113,6 +113,8 @@ console.log(newContact.toString());
 
 let contactList = new Array();
 try{
+    contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
+    "9044961252", "utkarsh@gmail.com"));
     contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
                                         "7086147852", "akshat@utlook.com"));
     contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
@@ -128,4 +130,14 @@ contactList.forEach(element => {
         element._address = "Tagore Town";
     }
 });
+console.log(contactList);
+
+//uc5 delete data using first name
+console.log('deleted contact');
+let index;
+contactList.forEach(element=> {
+    if(element._firstName == "Akshat")   
+        index = contactList.indexOf(element);
+});
+contactList.splice(index, 1);
 console.log(contactList);
