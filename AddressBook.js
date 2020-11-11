@@ -113,6 +113,8 @@ console.log(newContact.toString());
 
 let contactList = new Array();
 try{
+    contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
+    "9044961252", "utkarsh@gmail.com"));
     contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
                                         "7086147852", "akshat@utlook.com"));
     contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
@@ -124,16 +126,17 @@ console.log(contactList);
 
 //uc4 Update data using first name
 contactList.forEach(element => {
-    if(element.firstName=="Diksha" && element.lastName=="Singh"){
-        element.address = "Tagore Town";
+    if(element._firstName=="Diksha"){
+        element._address = "Tagore Town";
     }
 });
 console.log(contactList);
 
 //uc5 delete data using first name
+console.log('deleted contact');
 let index;
 contactList.forEach(element=> {
-    if(element.firstName == "Akshat")   
+    if(element._firstName == "Akshat")   
         index = contactList.indexOf(element);
 });
 contactList.splice(index, 1);
