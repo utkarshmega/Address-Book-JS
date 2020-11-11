@@ -141,3 +141,10 @@ contactList.forEach(element=> {
 });
 contactList.splice(index, 1);
 console.log(contactList);
+
+//uc6 count number of contacts
+function countNoOfContacts(total){
+    return total+1;
+}
+let countOfContacts=contactList.reduce(countNoOfContacts, 0);
+console.log('Number of Contacts in Array : '+countOfContacts);
