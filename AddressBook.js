@@ -129,7 +129,7 @@ function getViewByCityOrState(property)
     else {
         contactList.forEach(element => {
             if(viewContact.has(element.state))
-                viewContact.set(element,state, viewContact.get(element.state).push(element));
+                viewContact.set(element.state, viewContact.get(element.state).push(element));
             else 
                 viewContact.set(element.state, [element]);
         });
@@ -196,3 +196,16 @@ console.log(viewByCity);
 let viewByState = getViewByCityOrState("state");
 console.log("View By State = ");
 console.log(viewByState);
+
+//uc10 Count By City or State
+let viewByCityCount = getViewByCityOrState("city");
+console.log("Count By City: ");
+viewByCityCount.forEach((value, key, map) => {
+    console.log(key +': '+ value.length);
+});
+console.log();
+let viewByStateCount = getViewByCityOrState("state");
+console.log("Count By State: ");
+viewByStateCount.forEach((value, key, map) => {
+    console.log(key +': '+ value.length);
+});
