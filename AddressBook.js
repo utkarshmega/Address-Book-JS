@@ -114,6 +114,29 @@ function getContactByState(state) {
     return contactList.filter(element => element.state == state);
 }
 
+function getViewByCityOrState(property)
+{
+    let viewContact = new Map(); 
+    if(property == "city")
+    {
+        contactList.forEach(element => {
+            if(viewContact.has(element.city))
+                viewContact.set(element.city, viewContact.get(element.city).push(element));
+            else
+                viewContact.set(element.city, [element]);
+        });
+    }
+    else {
+        contactList.forEach(element => {
+            if(viewContact.has(element.state))
+                viewContact.set(element,state, viewContact.get(element.state).push(element));
+            else 
+                viewContact.set(element.state, [element]);
+        });
+    }
+    return viewContact;
+}
+
 let contactList = new Array();
 try{
     contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Prayagraj", "Uttar Pradesh", 211003, 
@@ -134,7 +157,7 @@ contactList.forEach(element => {
     if(element._firstName=="Diksha"){
         element._address = "Tagore Town";
     }
-});
+}); 
 console.log(contactList);
 
 //uc5 delete data using first name
@@ -154,6 +177,7 @@ function countNoOfContacts(total){
 let countOfContacts=contactList.reduce(countNoOfContacts, 0);
 console.log('Number of Contacts in Array : '+countOfContacts);
 
+//uc8 search by city or state
 let city = 'Delhi';
 let contactsByCity = getContactByCity(city);
 console.log('Contacts in ' + city);
@@ -164,3 +188,11 @@ let contactsByState = getContactByState(state);
 console.log('Contacts in ' + state);
 contactsByState.forEach(contact => console.log(contact.toString()));
 
+//UC9 View by city or state
+let viewByCity = getViewByCityOrState("city");
+console.log("View By City = ");
+console.log(viewByCity);
+
+let viewByState = getViewByCityOrState("state");
+console.log("View By State = ");
+console.log(viewByState);
