@@ -145,7 +145,7 @@ try{
                                         "7086147852", "akshat@utlook.com"));
     contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
                                             "9635214782", "diksha@hotmail.com"));
-    contactList.push(new AddressBookContact("Kriti", "Singh", "Conaught Palace", "Delhi", "New Delhi", 122001,
+    contactList.push(new AddressBookContact("Kriti", "Singh", "Conaught Palace", "Delhi", "New Delhi", 122031,
                                             "9635412522", "kriti@hotmail.com"));
 } catch (e) {
     console.log(e);
@@ -212,4 +212,8 @@ viewByStateCount.forEach((value, key, map) => {
 
 //UC11 Sort using city
 contactList.sort((contact1, contact2) => contact1.city.localeCompare(contact2.city));
+console.log(contactList);
+
+//uc12 Sort using zip
+contactList.sort((contact1, contact2) => contact1.zip - contact2.zip);
 console.log(contactList);
