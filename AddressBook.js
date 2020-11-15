@@ -209,3 +209,7 @@ console.log("Count By State: ");
 viewByStateCount.forEach((value, key, map) => {
     console.log(key +': '+ value.length);
 });
+
+//UC11 Sort using city
+contactList.sort((contact1, contact2) => contact1.city.localeCompare(contact2.city));
+console.log(contactList);
