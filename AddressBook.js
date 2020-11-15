@@ -107,18 +107,47 @@ class AddressBookContact {
 
 
 }
-let newContact = new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
-                                         "9044961252", "utkarsh@gmail.com");
-console.log(newContact.toString());
+
+function getContact(firstName, lastName) {
+    let contactTmp;
+    contactList.forEach(element => {
+        if(element.firstName == firstName && element.lastName == lastName)
+            contactTmp = element;
+    });
+    return contactTmp;
+}
 
 let contactList = new Array();
 try{
-    contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
-    "9044961252", "utkarsh@gmail.com"));
-    contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
-                                        "7086147852", "akshat@utlook.com"));
-    contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
-                                            "9635214782", "diksha@hotmail.com"));
+    let firstContact = new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
+    "9044961252", "utkarsh@gmail.com");
+    if(getContact(firstContact.firstName, firstContact.lastName) == null)
+        contactList.push(firstContact);
+    else    
+        throw "Contact already added";
+
+    let secondContact = new AddressBookContact("Akshat", "Agarwal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
+    "7086147852", "akshat@utlook.com");
+    if(getContact(secondContact.firstName, secondContact.lastName) == null)
+        contactList.push(secondContact);
+    else    
+        throw "Contact already added";
+
+    let thirdContact = new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
+    "9635214782", "diksha@hotmail.com");
+    if(getContact(thirdContact.firstName, thirdContact.lastName) == null)
+    contactList.push(thirdContact);
+    else    
+        throw "Contact already added"; 
+
+    let fourthContact = new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
+    "9635214782", "diksha@hotmail.com");
+    if(getContact(fourthContact.firstName, fourthContact.lastName) == null)
+    contactList.push(fourthContact);
+    else    
+        throw "Contact already added"; 
+        
+                                           
 } catch (e) {
     console.log(e);
 }
