@@ -104,21 +104,26 @@ class AddressBookContact {
         }
         else throw "Enter valid Email!";
     }
-
-
 }
-let newContact = new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
-                                         "9044961252", "utkarsh@gmail.com");
-console.log(newContact.toString());
+
+function getContactByCity(city) {
+    return contactList.filter(element => element.city == city);
+}
+
+function getContactByState(state) {
+    return contactList.filter(element => element.state == state);
+}
 
 let contactList = new Array();
 try{
-    contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Allahabad", "Uttar Pradesh", 211003, 
+    contactList.push(new AddressBookContact("Utkarsh", "Agarwal", "Chowk", "Prayagraj", "Uttar Pradesh", 211003, 
     "9044961252", "utkarsh@gmail.com"));
     contactList.push(new AddressBookContact("Akshat", "Agrawal", "Civil lines", "Prayagraj", "UttarPradesh", 211001,
                                         "7086147852", "akshat@utlook.com"));
     contactList.push(new AddressBookContact("Diksha", "Singh", "Ashok nagar", "Delhi", "New Delhi", 122001,
                                             "9635214782", "diksha@hotmail.com"));
+    contactList.push(new AddressBookContact("Kriti", "Singh", "Conaught Palace", "Delhi", "New Delhi", 122001,
+                                            "9635412522", "kriti@hotmail.com"));
 } catch (e) {
     console.log(e);
 }
@@ -148,3 +153,14 @@ function countNoOfContacts(total){
 }
 let countOfContacts=contactList.reduce(countNoOfContacts, 0);
 console.log('Number of Contacts in Array : '+countOfContacts);
+
+let city = 'Delhi';
+let contactsByCity = getContactByCity(city);
+console.log('Contacts in ' + city);
+contactsByCity.forEach(contact => console.log(contact.toString()));
+
+let state = 'Uttar Pradesh';
+let contactsByState = getContactByState(state);
+console.log('Contacts in ' + state);
+contactsByState.forEach(contact => console.log(contact.toString()));
+
